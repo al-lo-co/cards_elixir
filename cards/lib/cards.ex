@@ -26,4 +26,10 @@ defmodule Cards do
   def contains?(deck, card) do #boolean answer adds ?
     Enum.member?(deck, card)
   end
+
+  def deal(deck, hand_size) do
+    {hand, remaining_deck} = Enum.split(deck, hand_size)
+    
+    hand
+  end #elixir replacement for variable assigment
 end
