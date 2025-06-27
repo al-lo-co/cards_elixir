@@ -1,18 +1,29 @@
-defmodule Cards do #defining modules, collection of functions and variables
-  @moduledoc """
-  Documentation for `Cards`.
-  """
+defmodule Cards do
+  def create_deck do
+    values = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"]
+    suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
 
-  @doc """
-  Hello world.
+    ## for value <- values do
+    ##   for suit <- suits do
+    ##     "#{value} of #{suit}" 
+    ##   end
+    ## end
+    ## |> List.flatten()
 
-  ## Example of executing the function and result
+    for suit <- suits, value <- values do
+      "#{value} of #{suit}"
+    end #less computation and less code solution
+  end
 
-      iex> Cards.hello()
-      :world
+  def shuffle do
+    create_deck() |> Enum.shuffle()
+  end
 
-  """
-  def hello do #defining functions
-    :world #implicity return as ruby
+  def shuffle(deck) do
+    Enum.shuffle(deck) #inmutable original data
+  end
+
+  def contains?(deck, card) do #boolean answer adds ?
+    Enum.member?(deck, card)
   end
 end
