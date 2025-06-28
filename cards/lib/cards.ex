@@ -28,8 +28,31 @@ defmodule Cards do
   end
 
   def deal(deck, hand_size) do
-    {hand, remaining_deck} = Enum.split(deck, hand_size)
+    {hand, _remaining_deck} = Enum.split(deck, hand_size) # _remaining_deck is not used, ignored variable
     
     hand
   end #elixir replacement for variable assigment
+
+  def save(deck, filename) do
+    binary = :erlang.term_to_binary(deck) #encode the file
+  
+    File.write(filename, binary)
+  end
+
+  def load(filename) do
+    case File.read(filename) do
+      # :ok is an atom 
+      {:ok, binary} -> :erlang.binary_to_term(binary)
+      {:error, _reason} -> "File does not exist" #error handling 
+    end
+  end
+
+  def create_hand(hand_size) do
+    Cards.create_deck()
+    |> Cards.shuffle()
+    |> Cards.deal(hand_size)
+    |> Cards.save("My deck")
+  
+    Cards.load("My deck")
+  end
 end
