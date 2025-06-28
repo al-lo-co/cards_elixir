@@ -37,6 +37,13 @@ defmodule Cards do
 
   @doc """
     Checks if a deck contains a card.
+
+  ## Examples
+
+      iex> deck = Cards.create_deck()
+      iex> Cards.contains?(deck, "Ace of Spades")
+      true
+
   """
   def contains?(deck, card) do #boolean answer adds ?
     Enum.member?(deck, card)
@@ -45,11 +52,13 @@ defmodule Cards do
   @doc """
     Deals a hand of cards with a `hand_size`.
 
-    ## Examples
+  ## Examples
 
-      iex> {hand, _remaining_deck} = Cards.deal(Cards.create_deck(), 2)
+      iex> deck = Cards.create_deck()
+      iex> hand = Cards.deal(deck, 1)
       iex> hand
-      ["Ace of Spades", "Two of Spades"]
+      ["Ace of Spades"]
+
   """
   def deal(deck, hand_size) do
     {hand, _remaining_deck} = Enum.split(deck, hand_size) # _remaining_deck is not used, ignored variable

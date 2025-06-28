@@ -9,7 +9,7 @@ dependencies: mix deps
 location dependencies: mix.exs on deps function
 update dependencies: mix deps.compile
 docs: mix docs
-
+run tests: mix test
 
 ## Installation
 
