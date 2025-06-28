@@ -4,6 +4,12 @@ Basic commands
 
 Terminal: `iex -S mix`
 Reload terminal inside: `recompile`
+Install dependencies: mix deps.get
+dependencies: mix deps
+location dependencies: mix.exs on deps function
+update dependencies: mix deps.compile
+docs: mix docs
+
 
 ## Installation
 
