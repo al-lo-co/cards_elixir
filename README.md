@@ -10,6 +10,9 @@ location dependencies: mix.exs on deps function
 update dependencies: mix deps.compile
 docs: mix docs
 run tests: mix test
+maps: colors = %{red: "red", green: "green", blue: "blue"}
+tuple: colors = [{:primary, "red"}, {:secondary, "green"}, {:tertiary, "blue"}]
+       colors = [primary: "red", secondary: "green", tertiary: "blue"]
 
 ## Installation
 
